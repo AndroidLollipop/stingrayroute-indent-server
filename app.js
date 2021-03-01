@@ -375,6 +375,8 @@ io.on("connection", (socket) => {
   socket.on("writeDataStore", ([internalUID, packet, token]) => {
     try {
       if (!packet || !packet.pin || packet.pin !== process.env.RECOMMEND_PIN) {
+        console.log(packet.pin)
+        console.log(process.env.RECOMMEND_PIN)
         socket.emit("requestauth", "Please enter the administrator password.")
         return
       }
