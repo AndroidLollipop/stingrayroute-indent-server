@@ -384,7 +384,7 @@ io.on("connection", (socket) => {
               email_sendEmail({senderTitle: "Indent System",
                 recipientAddress: email,
                 subject: `Indent ${write.status}: ${write.name}`,
-                message: `<body>Indent <b>${write.name}</b> has been <b>${write.status}</b><table><tr><th>Purpose</th><th>Start time</th><th>End time</th><th>Reporting location</th><th>Destination</th><th>Contact person</th><th>Contact person number</th><th>Vehicle type</th><th>Vehicles</th><th>Notes</th><th>Status</th></tr><tr><td>${write.name}</td><td>${write.startDateTime}</td><td>${write.endDateTime}</td><td>${write.origin}</td><td>${write.destination}</td><td>${write.POC}</td><td>${write.POCPhone}</td><td>${write.system}</td><td>${write.vehicles}</td><td>${write.notes}</td><td>${write.status}</td></tr></table></body>`
+                message: `<body>Indent <b>${write.name}</b> has been <b>${write.status}</b><table><tr><th>Resource</th><th>Purpose</th><th>Start time</th><th>End time</th><th>Unit</th><th>Company</th><th>Contact person</th><th>Contact person number</th><th>Notes</th><th>Status</th></tr><tr><td>${write.system}</td><td>${write.name}</td><td>${write.startDateTime}</td><td>${write.endDateTime}</td><td>${write.unit}</td><td>${write.company}</td><td>${write.POC}</td><td>${write.POCPhone}</td><td>${write.notes}</td><td>${write.status}</td></tr></table></body>`
               })
             }
           }
@@ -417,7 +417,7 @@ io.on("connection", (socket) => {
             email_sendEmail({senderTitle: "Indent System",
               recipientAddress: email,
               subject: `New indent: ${write.name}`,
-              message: `<body>Indent <b>${write.name}</b> has been made and is now <b>Pending</b><table><tr><th>Purpose</th><th>Start time</th><th>End time</th><th>Reporting location</th><th>Destination</th><th>Contact person</th><th>Contact person number</th><th>Vehicle type</th><th>Vehicles</th><th>Notes</th><th>Status</th></tr><tr><td>${write.name}</td><td>${write.startDateTime}</td><td>${write.endDateTime}</td><td>${write.origin}</td><td>${write.destination}</td><td>${write.POC}</td><td>${write.POCPhone}</td><td>${write.system}</td><td>${write.vehicles}</td><td>${write.notes}</td><td>${write.status}</td></tr></table></body>`
+              message: `<body>Indent <b>${write.name}</b> has been made and is now <b>Pending</b><table><tr><th>Resource</th><th>Purpose</th><th>Start time</th><th>End time</th><th>Unit</th><th>Company</th><th>Contact person</th><th>Contact person number</th><th>Notes</th><th>Status</th></tr><tr><td>${write.system}</td><td>${write.name}</td><td>${write.startDateTime}</td><td>${write.endDateTime}</td><td>${write.unit}</td><td>${write.company}</td><td>${write.POC}</td><td>${write.POCPhone}</td><td>${write.notes}</td><td>${write.status}</td></tr></table></body>`
             })
           }
         }
