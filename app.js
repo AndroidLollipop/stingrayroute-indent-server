@@ -375,6 +375,7 @@ io.on("connection", (socket) => {
   socket.on("writeDataStore", ([internalUID, write, token]) => {
     try {
       if (!write || !write.pin || write.pin !== process.env.RECOMMEND_PIN) {
+        socket.emit("alert", "Wrong password.")
         return
       }
       const edited = writeDataStore(internalUID, write)
