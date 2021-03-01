@@ -374,6 +374,9 @@ io.on("connection", (socket) => {
   })
   socket.on("writeDataStore", ([internalUID, write, token]) => {
     try {
+      if (!write || !write.pin || write.pin !== process.env.RECOMMEND_PIN) {
+        return
+      }
       const edited = writeDataStore(internalUID, write)
       socket.emit("sendIndents", dataStore)
       notifyI(socket)
