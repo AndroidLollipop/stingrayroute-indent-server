@@ -372,11 +372,15 @@ io.on("connection", (socket) => {
   socket.on("requestNotifications", () => {
     socket.emit("sendNotifications", notificationsStore)
   })
-  socket.on("writeDataStore", ([internalUID, write, token]) => {
+  socket.on("writeDataStore", ([internalUID, packet, token]) => {
     try {
-      if (!write || !write.pin || write.pin !== process.env.RECOMMEND_PIN) {
-        socket.emit("alert", "Wrong password.")
+      if (!packet || !packet.pin || packet.pin !== process.env.RECOMMEND_PIN) {
+        socket.emit("requestauth", "Please enter the administrator password.")
         return
+      }
+      const write = packet.data
+      if (!write) {
+        socket.emit("alert", "Error: Invalid data")
       }
       const edited = writeDataStore(internalUID, write)
       socket.emit("sendIndents", dataStore)
